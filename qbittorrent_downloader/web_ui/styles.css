@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Drop zone styling */
+#dropZone {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#dropZone:hover {
+    background-color: #f1f1f1;
+}
+
+#dropZone p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+#torrentFile {
+    display: none; /* Hide the default file input */
+}
+
+/* Flex table container */
+.torrent-table {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Flex table row */
+.torrent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Torrent name */
+.torrent-name {
+    flex: 2;
+    font-weight: bold;
+    width: 100px; /* Fixed width for the name */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Progress bar container */
+.torrent-progress-container {
+    flex: 3;
+    width: 200px; /* Fixed width for the progress bar */
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+/* Progress bar */
+.torrent-progress-bar {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+    position: relative; /* Make it a positioned element */
+}
+
+.torrent-progress-bar::after {
+    content: attr(data-progress) '%'; /* Display the progress percentage */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white; /* Text color */
+    font-size: 12px; /* Font size */
+    font-weight: bold; /* Make the text bold */
+}
+
+/* Torrent status */
+.torrent-status {
+    flex: 1;
+    text-align: right;
+    font-style: italic;
+    width: 50px; /* Fixed width for the status */;
+}
+
+/* Media query for screens larger than 600px */
+@media (max-width: 850px) {
+    .torrent-row {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+        gap: 10px; /* Add spacing between items */
+    }
+
+    .torrent-name,
+    .torrent-progress-container,
+    .torrent-status {
+        width: 100%; /* Make each item take full width */
+        height: 20px;
+        text-align: left; /* Align text to the left */
+    }
+    .torrent-progress-container {
+        position: relative;
+        width: 50px; /* Set width for the circular gauge */
+        height: 50px; /* Set height for the circular gauge */
+        border-radius: 50%; /* Make it circular */
+        background-color: #4caf50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .torrent-progress-container::after {
+        content: attr(data-progress) '%'; /* Display progress percentage */
+        position: absolute;
+        font-size: 12px;
+        color: #333;
+    }
+    .torrent-progress-container {
+        margin: 0; /* Remove horizontal margin */
+    }
+
+    .torrent-status {
+        font-style: normal; /* Optional: Adjust font style for better readability */
+    }
+}
