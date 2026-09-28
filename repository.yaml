@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/apps/repository#repository-configuration
+name: MinerBigWhale Home Assistant Addons
+url: 'https://github.com/MinerBigWhale/hass_addons'
+maintainer: MinerBigWhale <minerbigwhale@example.com>
